@@ -1,0 +1,922 @@
+--
+-- File generated with SQLiteStudio v3.4.4 on dom out 22 23:21:57 2023
+--
+-- Text encoding used: System
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: employee
+CREATE TABLE IF NOT EXISTS employee (
+    id               INTEGER PRIMARY KEY,
+    nome             TEXT,
+    sobrenome        TEXT,
+    cargo            TEXT,
+    salario          REAL,
+    data_contratacao DATE
+);
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         1,
+                         'João',
+                         'Silva',
+                         'Analista de Dados',
+                         55000.0,
+                         '2023-10-22'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         2,
+                         'João',
+                         'Silva',
+                         'Analista de Dados',
+                         55000.0,
+                         '2023-10-22'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         3,
+                         'manuel',
+                         'teste',
+                         'gerente',
+                         40000.0,
+                         '2023-1-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         4,
+                         'Alice',
+                         'Silva',
+                         'Analista',
+-                        408913168539468144050176.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         5,
+                         'Bob',
+                         'Santos',
+                         'Gerente',
+-                        130773600567897110872064.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         6,
+                         'Carol',
+                         'Oliveira',
+                         'Desenvolvedor',
+-                        300858945733629581459456.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         7,
+                         'David',
+                         'Souza',
+                         'Analista',
+                         378028269167949264191488.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         8,
+                         'Eve',
+                         'Ferreira',
+                         'Desenvolvedor',
+-                        162839603321704768602112.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         9,
+                         'Frank',
+                         'Ribeiro',
+                         'Analista',
+                         428561468611349058682880.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         10,
+                         'Grace',
+                         'Gomes',
+                         'Assistente',
+                         300083492400746446454784.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         11,
+                         'Harry',
+                         'Machado',
+                         'Desenvolvedor',
+-                        194809463225124716019712.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         12,
+                         'Isabel',
+                         'Rocha',
+                         'Analista',
+-                        368386081626589665165312.0,
+                         '2003-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         13,
+                         'Jack',
+                         'Lima',
+                         'Gerente',
+-                        198980645317736535162880.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         14,
+                         'Alice',
+                         'Silva',
+                         'Analista',
+-                        434458131845616217620480.0,
+                         '2003-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         15,
+                         'Bob',
+                         'Santos',
+                         'Gerente',
+-                        480509416963612816179200.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         16,
+                         'Carol',
+                         'Oliveira',
+                         'Desenvolvedor',
+                         619371136944441524224.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         17,
+                         'David',
+                         'Souza',
+                         'Analista',
+                         102909460771858529910784.0,
+                         '1996-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         18,
+                         'Eve',
+                         'Ferreira',
+                         'Desenvolvedor',
+-                        302001591964227969482752.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         19,
+                         'Frank',
+                         'Ribeiro',
+                         'Analista',
+-                        153371264272016347234304.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         20,
+                         'Grace',
+                         'Gomes',
+                         'Assistente',
+-                        338582657324627485786112.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         21,
+                         'Harry',
+                         'Machado',
+                         'Desenvolvedor',
+-                        321619429968546564669440.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         22,
+                         'Isabel',
+                         'Rocha',
+                         'Analista',
+                         315598021071986558500864.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         23,
+                         'Jack',
+                         'Lima',
+                         'Gerente',
+                         272962975325196270960640.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         24,
+                         'Alice',
+                         'Silva',
+                         'Analista',
+                         57951046479121204903936.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         25,
+                         'Bob',
+                         'Santos',
+                         'Gerente',
+                         451975436922156795035648.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         26,
+                         'Carol',
+                         'Oliveira',
+                         'Desenvolvedor',
+                         301049425826953107079168.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         27,
+                         'David',
+                         'Souza',
+                         'Analista',
+                         285142357855083723489280.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         28,
+                         'Eve',
+                         'Ferreira',
+                         'Desenvolvedor',
+                         25692153776379023851520.0,
+                         '2002-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         29,
+                         'Frank',
+                         'Ribeiro',
+                         'Analista',
+                         256538030643669544992768.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         30,
+                         'Grace',
+                         'Gomes',
+                         'Assistente',
+                         140860931723019453202432.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         31,
+                         'Harry',
+                         'Machado',
+                         'Desenvolvedor',
+-                        19950570438388017528832.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         32,
+                         'Isabel',
+                         'Rocha',
+                         'Analista',
+                         278956353368999583547392.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         33,
+                         'Jack',
+                         'Lima',
+                         'Gerente',
+-                        39632233231648173326336.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         34,
+                         'Alice',
+                         'Silva',
+                         'Analista',
+                         337451351487087309225984.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         35,
+                         'Bob',
+                         'Santos',
+                         'Gerente',
+-                        504026343866833567744000.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         36,
+                         'Carol',
+                         'Oliveira',
+                         'Desenvolvedor',
+                         133998318838690485370880.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         37,
+                         'David',
+                         'Souza',
+                         'Analista',
+                         135708971727624236695552.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         38,
+                         'Eve',
+                         'Ferreira',
+                         'Desenvolvedor',
+-                        321463670889480546418688.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         39,
+                         'Frank',
+                         'Ribeiro',
+                         'Analista',
+                         64924660873070412562432.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         40,
+                         'Grace',
+                         'Gomes',
+                         'Assistente',
+-                        224268275293714192007168.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         41,
+                         'Harry',
+                         'Machado',
+                         'Desenvolvedor',
+-                        65686877294401232568320.0,
+                         '1998-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         42,
+                         'Isabel',
+                         'Rocha',
+                         'Analista',
+-                        63511028470227427917824.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         43,
+                         'Jack',
+                         'Lima',
+                         'Gerente',
+-                        535500362967961202327552.0,
+                         '1999-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         44,
+                         'Alice',
+                         'Silva',
+                         'Analista',
+                         357998411705776613621760.0,
+                         '2004-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         45,
+                         'Bob',
+                         'Santos',
+                         'Gerente',
+-                        54710115475966341939200.0,
+                         '1996-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         46,
+                         'Carol',
+                         'Oliveira',
+                         'Desenvolvedor',
+-                        365050865480974624358400.0,
+                         '2005-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         47,
+                         'David',
+                         'Souza',
+                         'Analista',
+-                        203062222723630632009728.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         48,
+                         'Eve',
+                         'Ferreira',
+                         'Desenvolvedor',
+                         334329592001019462549504.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         49,
+                         'Frank',
+                         'Ribeiro',
+                         'Analista',
+                         156663777456784704274432.0,
+                         '2003-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         50,
+                         'Grace',
+                         'Gomes',
+                         'Assistente',
+                         274624602742871438655488.0,
+                         '1997-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         51,
+                         'Harry',
+                         'Machado',
+                         'Desenvolvedor',
+-                        23720013988145722818560.0,
+                         '1999-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         52,
+                         'Isabel',
+                         'Rocha',
+                         'Analista',
+                         436690453867739366817792.0,
+                         '2001-01-01'
+                     );
+
+INSERT INTO employee (
+                         id,
+                         nome,
+                         sobrenome,
+                         cargo,
+                         salario,
+                         data_contratacao
+                     )
+                     VALUES (
+                         53,
+                         'Jack',
+                         'Lima',
+                         'Gerente',
+-                        354046652902558339694592.0,
+                         '2000-01-01'
+                     );
+
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;

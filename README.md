@@ -1,88 +1,103 @@
-Gerenciador de Dados dos Funcionários
+# Employee Manager | InNovaIdeia
 
-Este projeto é uma aplicação simples em Python que utiliza Tkinter para interface gráfica e SQLite3 para banco de dados. Ele permite criar uma tabela de funcionários, bem como adicionar novos registros de funcionários diretamente pela interface.
+**Sistema de gestão de funcionários com API REST e cliente desktop.** Projeto modernizado com Python, FastAPI, SQLAlchemy 2.x, Pydantic e SQLite, mantendo o script legado `empresa.py` como referência.
 
-Funcionalidades
+## Arquitetura
 
-Criar Tabela: Verifica se a tabela employee existe no banco de dados e a cria caso não exista.
+- **API REST:** FastAPI com documentação OpenAPI automática.
+- **Persistência:** SQLAlchemy 2.x; SQLite por padrão e URL configurável por `DATABASE_URL`.
+- **Validação:** Pydantic 2, incluindo salário não negativo e data ISO.
+- **Desktop:** cliente Tkinter que consome a API via HTTP.
+- **Qualidade:** Pytest e GitHub Actions.
 
-Adicionar Funcionários: Insere novos registros no banco de dados a partir das informações fornecidas pelo usuário na interface gráfica.
+## Requisitos
 
+Python 3.10 ou superior. Para a interface desktop, instale também o suporte Tkinter fornecido pela distribuição Python.
 
-Pré-requisitos
+## Instalação
 
-Para executar o projeto, é necessário ter instalado:
+```bash
+git clone https://github.com/Foxactive1/Projeto.git
+cd Projeto
+python -m venv .venv
+# Linux/macOS: source .venv/bin/activate
+# Windows PowerShell: .venv\\Scripts\\Activate.ps1
+python -m pip install --upgrade pip
+python -m pip install -e '.[dev]'
+```
 
-Python 3.6 ou superior
+## Executar
 
-Bibliotecas padrão:
+Terminal 1 — API local:
 
-sqlite3 (inclusa no Python)
+```bash
+uvicorn employee_manager.api:app --app-dir src --host 127.0.0.1 --port 8000 --reload
+```
 
-tkinter (inclusa no Python)
+Documentação interativa: http://127.0.0.1:8000/docs
 
+Terminal 2 — desktop:
 
+```bash
+python -m employee_manager.desktop
+```
 
-Como executar
+Se necessário, configure `EMPLOYEE_API_URL` para apontar ao endereço da API. A API escuta em `127.0.0.1` por padrão: não a exponha à internet sem autenticação, autorização, TLS e controles de rede.
 
-1. Clone o repositório ou baixe o arquivo main.py no seu computador.
+## Endpoints
 
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/health` | Verificação de saúde |
+| POST | `/employees` | Cadastrar funcionário |
+| GET | `/employees` | Listar funcionários |
+| GET | `/employees/{id}` | Consultar funcionário |
+| PUT | `/employees/{id}` | Atualizar funcionário |
+| DELETE | `/employees/{id}` | Excluir funcionário |
 
-2. Execute o arquivo Python no terminal ou em seu IDE preferido:
+Exemplo de payload:
 
-python main.py
+```json
+{
+  "nome": "Maria",
+  "sobrenome": "Silva",
+  "cargo": "Analista de Sistemas",
+  "salario": 4500.00,
+  "data_contratacao": "2024-01-15"
+}
+```
 
+## Testes
 
-3. Use a interface gráfica para:
+```bash
+pytest -q
+```
 
-Criar a tabela clicando no botão "Criar Tabela (ou Verificar Existência)".
+Os testes usam banco temporário isolado e registros fictícios.
 
-Inserir os dados do funcionário nos campos apropriados e clicar em "Inserir Funcionário".
+## Banco legado e segurança de dados
 
+O modelo mantém os nomes de tabela e colunas do projeto anterior (`employee`, `nome`, `sobrenome`, `cargo`, `salario`, `data_contratacao`). Isso facilita a transição, mas **não substitui uma validação com uma cópia de backup do banco real**. Faça backup e teste a compatibilidade antes de configurar `DATABASE_URL` para uma base existente. A aplicação não migra automaticamente esquemas antigos.
 
+Arquivos de banco, exportações e segredos locais são ignorados pelo Git. Nunca versione dados pessoais, `.env` ou credenciais.
 
+## Estrutura
 
-Estrutura do Banco de Dados
+```text
+src/employee_manager/
+  api.py          # API e operações CRUD
+  database.py     # Engine e sessões SQLAlchemy
+  models.py       # Modelo persistente
+  schemas.py      # Contratos Pydantic
+  desktop.py      # Cliente Tkinter
+ tests/
+  test_api.py
+```
 
-A tabela employee contém os seguintes campos:
+## Licença
 
-Personalização
-
-Para alterar o nome do banco de dados, substitua 'empresa.db' na variável de conexão pelo nome desejado.
-
-Novos campos podem ser adicionados na tabela, mas será necessário atualizar a função inserir_funcionario.
-
-
-Exemplo de Uso
-
-1. Ao abrir o programa, preencha os seguintes campos:
-
-Nome: Maria
-
-Sobrenome: Silva
-
-Cargo: Analista de Sistemas
-
-Salário: 4500.00
-
-Data de Contratação: 2024-01-15
-
-
-
-2. Clique em "Inserir Funcionário".
-
-
-3. O status na parte inferior da janela exibirá: "Funcionário inserido com sucesso!".
-
-
-
-Licença
-
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
+Consulte o arquivo de licença do repositório, se aplicável.
 
 ---
 
-Feito com 💻 e ☕ por Dione Castro Alves. vulgo    
-InNovaIdeia ®
-
+Desenvolvido por **Dione Castro Alves | InNovaIdeia®**.

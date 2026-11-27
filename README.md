@@ -1,88 +1,97 @@
-Gerenciador de Dados dos Funcionários
+# Employee Manager — API + Desktop
 
-Este projeto é uma aplicação simples em Python que utiliza Tkinter para interface gráfica e SQLite3 para banco de dados. Ele permite criar uma tabela de funcionários, bem como adicionar novos registros de funcionários diretamente pela interface.
+Aplicação de gerenciamento de funcionários modernizada com **FastAPI**, **SQLAlchemy**, **SQLite** e interface desktop **CustomTkinter**. A interface desktop consome a API REST, mantendo a camada de dados independente da interface.
 
-Funcionalidades
+> **Privacidade:** bancos de dados, exportações e registros reais não fazem parte desta versão do projeto. Use somente dados fictícios em desenvolvimento e testes. O arquivo `.env.example` contém apenas configurações ilustrativas.
 
-Criar Tabela: Verifica se a tabela employee existe no banco de dados e a cria caso não exista.
+## Arquitetura
 
-Adicionar Funcionários: Insere novos registros no banco de dados a partir das informações fornecidas pelo usuário na interface gráfica.
+- **API:** FastAPI com documentação OpenAPI automática.
+- **Persistência:** SQLAlchemy 2.x e SQLite por padrão.
+- **Desktop:** CustomTkinter + Requests.
+- **Validação:** Pydantic, incluindo salário não negativo e data ISO.
+- **Testes:** Pytest + FastAPI TestClient.
 
+## Estrutura
 
-Pré-requisitos
+```text
+src/employee_manager/
+  api.py          # endpoints REST e factory da aplicação
+  database.py     # engine e sessões SQLAlchemy
+  models.py       # mapeamento da tabela employee
+  schemas.py      # contratos e validação Pydantic
+  desktop.py      # interface desktop
+tests/
+  test_api.py
+requirements.txt
+.env.example
+```
 
-Para executar o projeto, é necessário ter instalado:
+## Instalação
 
-Python 3.6 ou superior
+Recomendado: Python 3.10 ou superior. Para a interface gráfica, instale também os componentes Tcl/Tk exigidos pelo sistema operacional.
 
-Bibliotecas padrão:
+```bash
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate
+# Linux/macOS: source .venv/bin/activate
+python -m pip install -r requirements.txt
+```
 
-sqlite3 (inclusa no Python)
+## Executar
 
-tkinter (inclusa no Python)
+Terminal 1 — API:
 
+```bash
+# Linux/macOS
+PYTHONPATH=src uvicorn employee_manager.api:app --reload
+# Windows PowerShell
+$env:PYTHONPATH="src"; uvicorn employee_manager.api:app --reload
+```
 
+Documentação interativa: http://127.0.0.1:8000/docs
 
-Como executar
+Terminal 2 — Desktop:
 
-1. Clone o repositório ou baixe o arquivo main.py no seu computador.
+```bash
+# Linux/macOS
+PYTHONPATH=src python -m employee_manager.desktop
+# Windows PowerShell
+$env:PYTHONPATH="src"; python -m employee_manager.desktop
+```
 
+A API cria a tabela `employee` ao iniciar. Por padrão, o banco local é `empresa.db`. Para usar outro caminho, configure `DATABASE_URL`; para apontar o desktop a outra API, configure `API_BASE_URL`.
 
-2. Execute o arquivo Python no terminal ou em seu IDE preferido:
+## Endpoints
 
-python main.py
+| Método | Rota | Ação |
+|---|---|---|
+| GET | `/health` | Verifica a API |
+| GET | `/employees` | Lista funcionários |
+| POST | `/employees` | Cadastra funcionário |
+| GET | `/employees/{id}` | Consulta funcionário |
+| PUT | `/employees/{id}` | Atualiza funcionário |
+| DELETE | `/employees/{id}` | Exclui funcionário |
 
+## Testes
 
-3. Use a interface gráfica para:
+```bash
+PYTHONPATH=src pytest -q
+```
 
-Criar a tabela clicando no botão "Criar Tabela (ou Verificar Existência)".
+Os testes usam banco SQLite em memória e dados inteiramente fictícios.
 
-Inserir os dados do funcionário nos campos apropriados e clicar em "Inserir Funcionário".
+## Compatibilidade e migração
 
+O modelo mantém os nomes de tabela e colunas da aplicação original (`employee`, `id`, `nome`, `sobrenome`, `cargo`, `salario`, `data_contratacao`). Faça backup local e valide o formato do banco antes de apontar `DATABASE_URL` para uma base existente. Não coloque arquivos de banco ou exportações no Git.
 
+## Segurança operacional
 
+- Não versionar bancos, dumps, planilhas ou dados pessoais.
+- Não publicar credenciais ou arquivos `.env`.
+- Restringir a API à rede confiável enquanto não houver autenticação e autorização.
+- Antes de uso em produção, adicionar autenticação, autorização por perfil, auditoria, política de retenção e backup criptografado.
 
-Estrutura do Banco de Dados
+## Licença
 
-A tabela employee contém os seguintes campos:
-
-Personalização
-
-Para alterar o nome do banco de dados, substitua 'empresa.db' na variável de conexão pelo nome desejado.
-
-Novos campos podem ser adicionados na tabela, mas será necessário atualizar a função inserir_funcionario.
-
-
-Exemplo de Uso
-
-1. Ao abrir o programa, preencha os seguintes campos:
-
-Nome: Maria
-
-Sobrenome: Silva
-
-Cargo: Analista de Sistemas
-
-Salário: 4500.00
-
-Data de Contratação: 2024-01-15
-
-
-
-2. Clique em "Inserir Funcionário".
-
-
-3. O status na parte inferior da janela exibirá: "Funcionário inserido com sucesso!".
-
-
-
-Licença
-
-Este projeto é distribuído sob a licença MIT. Consulte o arquivo LICENSE para mais detalhes.
-
-
----
-
-Feito com 💻 e ☕ por Dione Castro Alves. vulgo    
-InNovaIdeia ®
-
+Consulte o arquivo de licença do repositório, se aplicável.

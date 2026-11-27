@@ -12,10 +12,12 @@ class Base(DeclarativeBase):
 
 def build_engine(database_url: str | None = None):
     url = database_url or os.getenv("DATABASE_URL", "sqlite:///./empresa.db")
-    options = {"check_same_thread": False} if url.startswith("sqlite") else {}
+    engine_options = {}
+    if url.startswith("sqlite"):
+        engine_options["connect_args"] = {"check_same_thread": False}
     if url in {"sqlite://", "sqlite:///:memory:"}:
-        options["poolclass"] = StaticPool
-    return create_engine(url, connect_args=options, future=True)
+        engine_options["poolclass"] = StaticPool
+    return create_engine(url, future=True, **engine_options)
 
 
 engine = build_engine()
